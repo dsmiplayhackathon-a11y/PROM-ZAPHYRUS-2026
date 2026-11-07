@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#650b19">
+  <title>PROM ZAPHYRUS 2026 | Casino</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- BIENVENIDA (CORTINA) -->
+  <main id="welcomeScreen" class="screen is-active">
+
+    <div class="welcome-background"></div>
+
+    <div id="curtainLayer" class="curtain-layer">
+
+      <div class="curtain-panel curtain-left"></div>
+      <div class="curtain-panel curtain-right"></div>
+
+      <div class="curtain-brand">
+        <img
+          class="curtain-logo"
+          src="assets/logo-zaphyrus-2026.png"
+          alt="Logo PROM Zaphyrus 2026"
+        >
+
+        <h1>PROM</h1>
+        <h2>ZAPHYRUS</h2>
+        <span>2026</span>
+
+        <button id="openCurtainBtn" class="gold-button">
+          ENTRAR ✦
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- INGRESO DEL INVITADO -->
+  <main id="loginScreen" class="screen">
+
+    <header class="top-brand">
+
+      <img
+        class="official-logo"
+        src="assets/logo-zaphyrus-2026.png"
+        alt="Logo PROM Zaphyrus 2026"
+      >
+
+    </header>
+
+
+    <section class="casino-content">
+
+      <h1>BIENVENIDO AL CASINO</h1>
+
+      <form id="guestForm" class="guest-form" autocomplete="off">
+
+        <label for="guestName">
+          ESCRIBE TUS NOMBRES Y APELLIDOS
+        </label>
+
+        <input
+          id="guestName"
+          type="text"
+          placeholder="Ej. Pepito Perez"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          maxlength="100"
+          required
+        >
+
+        <p id="formMessage" class="form-message">
+          Escribe tu nombre. Después pulsa INGRESAR.
+        </p>
+
+        <button
+          id="verifyBtn"
+          class="gold-button"
+          type="submit"
+          disabled
+        >
+          INGRESAR
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- MÁQUINA TRAGAMONEDAS -->
+  <main id="machineScreen" class="screen">
+
+    <header class="top-brand">
+
+      <img
+        class="official-logo"
+        src="assets/logo-zaphyrus-2026.png"
+        alt="Logo PROM Zaphyrus 2026"
+      >
+
+    </header>
+
+
+    <section class="casino-content">
+
+      <p id="stageInstruction">
+        Pulsa START para girar la máquina.
+      </p>
+
+      <div class="machine-container">
+
+        <div class="machine">
+
+          <div class="machine-top">
+            <span>PROM ZAPHYRUS 2026</span>
+          </div>
+
+          <div class="machine-screen">
+
+            <div id="reels" class="reels">
+
+              <div class="reel">
+                <span class="reel-symbol">7</span>
+              </div>
+
+              <div class="reel">
+                <span class="reel-symbol">★</span>
+              </div>
+
+              <div class="reel">
+                <span class="reel-symbol">7</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="machine-controls">
+
+            <button id="spinBtn" class="start-button" type="button">
+              START
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- RESULTADO -->
+  <main id="resultScreen" class="screen result-screen">
+
+    <div id="fireworks" class="fireworks"></div>
+
+    <section class="result-content">
+
+      <p class="result-subtitle">TU EXPERIENCIA ZAPHYRUS</p>
+
+      <h1 id="resultGuest"></h1>
+
+      <p class="result-label">TU MESA ASIGNADA ES</p>
+
+      <div class="table-number">
+        <span id="resultTableNumber">07</span>
+      </div>
+
+
+      <!-- PLANO -->
+      <section class="floorplan">
+
+        <div class="stage-area">
+          TARIMA
+        </div>
+
+        <div class="dance-area">
+          PISTA DE BAILE
+        </div>
+
+        <div class="floorplan-content">
+
+          <div class="side-zone">
+            <div class="zone-label">BAR</div>
+            <div id="leftTables" class="tables-column"></div>
+          </div>
+
+          <div class="central-aisle">
+            PASILLO
+          </div>
+
+          <div class="side-zone">
+            <div class="zone-label">PASABOCAS</div>
+            <div id="rightTables" class="tables-column"></div>
+            <div class="zone-label">SPOT DE FOTOS</div>
+          </div>
+
+        </div>
+
+        <div class="entrance-area">
+          ENTRADA
+        </div>
+
+      </section>
+
+
+      <button id="finishBtn" class="gold-button finish-button">
+        FINALIZAR
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
