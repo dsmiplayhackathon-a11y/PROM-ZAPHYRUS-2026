@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
+  /* Cuánto se baja el contenido en las pantallas de ingreso, máquina y resultado
+     (no afecta la pantalla de inicio). Sube el número para bajar más. */
+  --content-offset: 48px;
+
   /* Imagen del telón: si tu archivo es .png o .webp, cambia solo esta línea */
   --curtain-image: url("assets/cortina-terciopelo.jpg");
 
@@ -69,8 +73,9 @@ button {
 }
 
 /*
- * Cada panel mide 53% del ancho. La imagen se escala a 188.7%
- * (100 / 53) para que entre las dos mitades formen el telón completo.
+ * Cada panel mide 50% del ancho, así la línea negra queda justo en el
+ * centro. La imagen se escala a 200% (100 / 50) para que entre las dos
+ * mitades formen el telón completo.
  * Capas (de arriba hacia abajo): oscurecimiento, imagen y degradado
  * rojo de respaldo. Estos mismos paneles se usan en la cortina de
  * inicio y en la de cierre.
@@ -78,7 +83,7 @@ button {
 
 .curtain-panel {
   position: absolute;
-  width: 53%;
+  width: 50%;
   height: 100%;
   top: 0;
   background-image:
@@ -92,7 +97,7 @@ button {
       #a51a31 45px,
       #4c0713 60px
     );
-  background-size: 100% 100%, 188.7% 100%, auto;
+  background-size: 100% 100%, 200% 100%, auto;
   background-repeat: no-repeat, no-repeat, repeat;
   box-shadow: inset 0 0 65px #210209;
   transition: transform 2s cubic-bezier(.75, 0, .2, 1);
@@ -103,13 +108,13 @@ button {
 .curtain-left {
   left: 0;
   background-position: 0 0, left top, 0 0;
-  border-right: 3px solid #000;
+  border-right: 2px solid #000;
 }
 
 .curtain-right {
   right: 0;
   background-position: 0 0, right top, 0 0;
-  border-left: 3px solid #000;
+  border-left: 2px solid #000;
 }
 
 .curtain-brand {
@@ -204,6 +209,14 @@ button {
   align-items: center;
 }
 
+/* Contenido más abajo en ingreso, máquina y resultado (ajusta --content-offset en :root) */
+
+#loginScreen,
+#machineScreen,
+#resultScreen {
+  padding-top: var(--content-offset);
+}
+
 /* Desvanecimiento antes del resultado (debe durar lo mismo que CONFIG.fadeDuration) */
 
 #machineScreen {
@@ -253,6 +266,13 @@ button {
 
 #stageInstruction {
   padding: 0 24px;
+  transition: font-size .3s ease;
+}
+
+/* Al pulsar START el texto crece ("Buscando tu mesa...") */
+
+#stageInstruction.is-searching {
+  font-size: 1.7rem;
 }
 
 /* MÁQUINA */
@@ -472,7 +492,7 @@ button {
 /* PLANO */
 
 .floorplan {
-  width: min(100%, 680px);
+  width: min(100%, 460px);
   margin: 30px auto;
   padding: 15px;
   background: #6a0b1a;
@@ -501,7 +521,7 @@ button {
 
 .floorplan-content {
   display: grid;
-  grid-template-columns: 1fr 55px 1fr;
+  grid-template-columns: 1fr 130px 1fr;
   gap: 8px;
 }
 
@@ -511,23 +531,17 @@ button {
   gap: 8px;
 }
 
-.zone-label {
-  font-size: .65rem;
-  color: var(--gold-light);
-  padding: 5px;
-}
-
 .tables-column {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 12px;
   justify-items: center;
   padding: 8px 0;
 }
 
 .table-node {
-  width: clamp(45px, 8vw, 70px);
-  height: clamp(45px, 8vw, 70px);
+  width: clamp(46px, 11vw, 62px);
+  height: clamp(46px, 11vw, 62px);
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -556,8 +570,8 @@ button {
   display: grid;
   place-items: center;
   color: var(--gold);
-  border-left: 1px dashed var(--gold);
-  border-right: 1px dashed var(--gold);
+  border-left: 2px dotted var(--gold);
+  border-right: 2px dotted var(--gold);
   font-size: .7rem;
   letter-spacing: .15em;
 }
@@ -681,6 +695,10 @@ button {
     padding: 0 32px;
   }
 
+  #stageInstruction.is-searching {
+    font-size: 1.35rem;
+  }
+
   /* Textos del resultado: menos espaciado entre letras para que quepan mejor */
 
   .result-subtitle,
@@ -758,17 +776,17 @@ button {
   }
 
   .floorplan-content {
-    grid-template-columns: 1fr 35px 1fr;
+    grid-template-columns: 1fr 80px 1fr;
     gap: 4px;
   }
 
   .tables-column {
-    gap: 7px;
+    gap: 8px;
   }
 
   .table-node {
-    width: 42px;
-    height: 42px;
-    font-size: .8rem;
+    width: 50px;
+    height: 50px;
+    font-size: .85rem;
   }
 }
