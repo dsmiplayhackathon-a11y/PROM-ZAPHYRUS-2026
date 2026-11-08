@@ -28,6 +28,8 @@ const MESSAGES = {
   incomplete: "Escribe tu nombre completo.",
   notFound: "No encontramos ese invitado. Revisa el nombre.",
   ambiguous: "Hay coincidencias ambiguas. Solicita ayuda.",
+  needSecondSurname:
+    "Hay más de una persona con ese nombre. Escribe también tu segundo apellido.",
   connection: "No pudimos conectar. Inténtalo de nuevo en unos segundos.",
   notConfigured: "Falta configurar la dirección del script."
 };
@@ -145,6 +147,9 @@ function getFailureMessage(result) {
 
     case "no_encontrado":
       return MESSAGES.notFound;
+
+    case "segundo_apellido":
+      return MESSAGES.needSecondSurname;
 
     case "ambiguo":
       return MESSAGES.ambiguous;
